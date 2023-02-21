@@ -1,3 +1,4 @@
+import { Box, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../Hooks/useAuth";
@@ -8,10 +9,10 @@ const Order = () => {
     register,
     handleSubmit,
 
-    formState: { errors },
+    // formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch("https://sheltered-wildwood-44278.herokuapp.com/orders", {
+    fetch("https://assignment-12-server-gamma.vercel.app/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -28,57 +29,37 @@ const Order = () => {
   };
 
   return (
-    <div xs={12} columns={{ xs: 4, sm: 8, md: 12 }}>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        style={{
-          backgroundColor: " #3A754D",
-          height: "310px",
-          width: "400px",
-          margin: "auto",
-          borderRadius: "10px",
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Typography
+        sx={{
+          marginTop: "10px",
+          fontFamily: "serif",
+          fontSize: "22px",
+          fontWeight: "700px",
         }}
       >
-        <h1>Order Your Product</h1>
-        <input
-          style={{ width: "70%", height: "20px", marginTop: "8px" }}
-          defaultValue={user.displayName}
-          {...register("name", { required: true })}
-        />
+        Order Peoduct
+      </Typography>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(1, 1fr)",
+          gap: "10px",
+          paddingLeft: "15px",
+          paddingTop: "10px",
+        }}
+      >
+        <TextField label="Name" defaultValue={user.displayName} />
 
-        <input
-          style={{ width: "70%", height: "20px", marginTop: "8px" }}
-          defaultValue={user.email}
-          {...register("email", { required: true })}
-        />
-        <input
-          style={{ width: "70%", height: "20px", marginTop: "8px" }}
-          placeholder="Address"
-          defaultValue=""
-          {...register("address")}
-        />
-        <input
-          style={{ width: "70%", height: "20px", marginTop: "8px" }}
-          placeholder="phone Number"
-          defaultValue=""
-          {...register("phoneNumber")}
-        />
-        <br />
+        <TextField label="Email" defaultValue={user.email} />
+        <TextField label="Address" defaultValue="" {...register("address")} />
+        <TextField label="Phone-Number" {...register("phoneNumber")} />
 
-        {errors.exampleRequired && <span>This field is required</span>}
-
-        <input
-          style={{
-            width: "72%",
-            height: "30px",
-            marginTop: "8px",
-            backgroundColor: "#DD6821",
-            fontWeight: "700px",
-          }}
-          type="submit"
-        />
-      </form>
-    </div>
+        <TextField style={{ color: "white" }} type="submit">
+          SUBMIT
+        </TextField>
+      </Box>
+    </form>
   );
 };
 

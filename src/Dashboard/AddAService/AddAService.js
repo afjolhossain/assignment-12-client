@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import React, { useRef } from "react";
 
 const AddAService = () => {
@@ -14,7 +15,7 @@ const AddAService = () => {
 
     const newService = { name, description, price, image };
 
-    fetch("https://sheltered-wildwood-44278.herokuapp.com/explores", {
+    fetch("https://assignment-12-server-gamma.vercel.app/explores", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -29,66 +30,56 @@ const AddAService = () => {
         }
       });
 
-    e.eventDefault();
+    e.preventDefault();
   };
   return (
     <div>
-      <br />
+      <Typography variant="h4" sx={{ marginTop: 10, color: "white" }}>
+        ADD A SERVICE
+      </Typography>
       <form
         onSubmit={handleAddService}
         style={{
-          border: "5px solid black",
-          width: 400,
-          height: 350,
-          borderRadius: "10px",
+          display: "grid",
+          gridTemplateColumns: "repeat(1, 1fr)",
+          width: "500px",
           margin: "auto",
-          backgroundColor: "#1BBB97",
+          gap: "10px",
+          padding: "10px",
         }}
       >
-        <h3>ADD A SERVICE</h3>
         <input
           type="text"
-          style={{ width: "300px", height: 30, marginTop: 15 }}
           placeholder="Service Name"
           ref={nameref}
+          style={{ height: "40px", borderRadius: "5px " }}
         />
-        <br />
-        <input
-          type="text"
-          style={{ width: "300px", height: 30, marginTop: 10 }}
-          placeholder="Image-Url"
-          ref={imageref}
-        />
-        <br />
 
         <input
           type="text"
-          style={{ width: "300px", height: 30, marginTop: 10 }}
+          placeholder="Image-Url"
+          ref={imageref}
+          style={{ height: "40px", borderRadius: "5px " }}
+        />
+
+        <input
+          type="text"
           placeholder="Description"
           ref={descriptionref}
+          style={{ height: "40px", borderRadius: "5px " }}
         />
-        <br />
+
         <input
           type="number"
-          style={{
-            width: "300px",
-            height: 30,
-            marginTop: 10,
-          }}
           placeholder="Price"
           ref={priceref}
+          style={{ height: "40px", borderRadius: "5px " }}
         />
-        <br />
 
         <input
           type="submit"
-          style={{
-            width: "310px",
-            height: 40,
-            marginTop: 10,
-            backgroundColor: "#E2220C",
-          }}
           value="SUBMIT"
+          style={{ height: "40px", borderRadius: "5px " }}
         />
       </form>
     </div>

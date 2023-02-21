@@ -1,13 +1,13 @@
+import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 
 const MyOrder = () => {
   const [orders, setOrder] = useState([]);
-  const { user } = useAuth();
-  const email = user?.email;
+  const { email, user } = useAuth();
 
   useEffect(() => {
-    fetch("https://sheltered-wildwood-44278.herokuapp.com/orders")
+    fetch("https://assignment-12-server-gamma.vercel.app/orders")
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, [orders]);
@@ -17,7 +17,7 @@ const MyOrder = () => {
     console.log(id);
     const confirm = window.confirm("Are you sure about this ?");
     if (confirm) {
-      fetch(`https://sheltered-wildwood-44278.herokuapp.com/orders/${id}`, {
+      fetch(`https://assignment-12-server-gamma.vercel.app/orders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -33,23 +33,24 @@ const MyOrder = () => {
 
   return (
     <div>
-      <h1>My Order List</h1>
-      <table style={{ margin: "auto" }} xs={12} md={6}>
+      <Typography variant="h4" sx={{ marginTop: 10, color: "white" }}>
+        Your Orders Available:{orders.length}
+      </Typography>
+      <table style={{ width: "100%" }}>
         <thead>
           <tr
             style={{
               backgroundColor: "#F43213",
-              width: 700,
               textAlign: "center",
               color: "white",
-              marginTop: "40",
+              height: "50px",
             }}
           >
-            <th>Name</th>
-            <th>Email</th>
-            <th>Mobile Number</th>
-            <th>Address</th>
-            <th>Action</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>MOBILE NUMBER</th>
+            <th>ADDRESS</th>
+            <th>DELETE</th>
           </tr>
         </thead>
         <tbody>
@@ -58,11 +59,11 @@ const MyOrder = () => {
               style={{
                 backgroundColor: "#808B96",
                 color: "white",
-                height: 30,
+                height: "40px",
               }}
             >
               <td style={{ backgroundColor: "#273746", width: 150 }}>
-                {order.name}
+                {user.displayName}
               </td>
               <td
                 style={{
@@ -71,20 +72,26 @@ const MyOrder = () => {
                   color: "black",
                 }}
               >
-                {order.email}
+                {user.email}
               </td>
               <td style={{ backgroundColor: "#707B7C", width: 250 }}>
                 {order.phoneNumber}
               </td>
 
-              <td style={{ backgroundColor: "#273746", width: 150 }}>
+              <td style={{ backgroundColor: "#273746", width: 250 }}>
                 {order.address}
               </td>
-              <button
-                style={{ marginRight: 10, backgroundColor: "#F1948A" }}
-                onClick={() => handleDelete(order._id)}
-              >
-                Delete
+              <button onClick={() => handleDelete(order._id)}>
+                <span
+                  style={{
+                    marginTop: "8px",
+                    fontSize: "30px",
+                    color: "red",
+                    border: "none",
+                  }}
+                >
+                  X
+                </span>
               </button>
             </tr>
           ))}

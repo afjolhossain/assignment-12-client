@@ -4,9 +4,9 @@ import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import AddAService from "./Dashboard/AddAService/AddAService";
 import ClientReview from "./Dashboard/ClientReview/ClientReview";
 import Dashboard from "./Dashboard/Dashboard/Dashboard";
+import DashboardProfile from "./Dashboard/DashboardProfile/DashboardProfile";
 import MakeAdmin from "./Dashboard/MakeAdmin/MakeAdmin";
 import ManageAllOrder from "./Dashboard/ManageAllOrder/ManageAllOrder";
-import ManageProducts from "./Dashboard/ManageProducts/ManageProducts";
 import MyOrder from "./Dashboard/MyOrder/MyOrder";
 import Pay from "./Dashboard/Pay/Pay";
 import ExploreHome from "./Pages/Explores/ExploreHome/ExploreHome";
@@ -17,10 +17,13 @@ import Login from "./Pages/Login/Login/Login";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import Register from "./Pages/Login/Register/Register";
 
+import Navigation from "./Pages/Shared/Navigation/Navigation";
+
 function App() {
   return (
-    <div className="App">
+    <div className="App ">
       <AuthProvider>
+        <Navigation></Navigation>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="home" element={<Home />} />
@@ -34,47 +37,25 @@ function App() {
               </PrivateRoute>
             }
           />
-          <Route path="exploreHome" element={<ExploreHome />} />
+          <Route path="/exploreHome" element={<ExploreHome />} />
 
-          <Route path="dashboard" element={<Dashboard />}>
+          <Route path="/dashboard" element={<Dashboard />}>
             <Route path={`/dashboard/myOrder`} element={<MyOrder />} />
+            <Route
+              path={`/dashboard/deshboardProfile`}
+              element={<DashboardProfile />}
+            />
             <Route
               path={`/dashboard/clientReview`}
               element={<ClientReview />}
             />
-            <Route
-              path={`/dashboard/makeAdmin`}
-              element={
-                <AdminRoute>
-                  <MakeAdmin />
-                </AdminRoute>
-              }
-            />
+            <Route path={`/dashboard/makeAdmin`} element={<MakeAdmin />} />
             <Route path={`/dashboard/pay`} element={<Pay />} />
-            <Route
-              path={`/dashboard/addaservice`}
-              element={
-                <AdminRoute>
-                  <AddAService />
-                </AdminRoute>
-              }
-            />
+            <Route path={`/dashboard/addaservice`} element={<AddAService />} />
 
             <Route
               path={`/dashboard/manageAllOrder`}
-              element={
-                <AdminRoute>
-                  <ManageAllOrder />
-                </AdminRoute>
-              }
-            />
-            <Route
-              path={`/dashboard/manageProducts`}
-              element={
-                <AdminRoute>
-                  <ManageProducts />
-                </AdminRoute>
-              }
+              element={<ManageAllOrder />}
             />
           </Route>
         </Routes>

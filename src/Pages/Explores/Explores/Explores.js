@@ -6,7 +6,7 @@ const Explores = () => {
   const [explores, setExplores] = useState([]);
 
   useEffect(() => {
-    fetch("https://sheltered-wildwood-44278.herokuapp.com/explores")
+    fetch("https://assignment-12-server-gamma.vercel.app/explores")
       .then((res) => res.json())
       .then((data) => setExplores(data));
   }, []);

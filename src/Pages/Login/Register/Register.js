@@ -1,24 +1,14 @@
 import {
   Alert,
-  Button,
   CircularProgress,
+  Divider,
   TextField,
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-import regBG from "../../../images/special.jpg";
-import loginlogo from "../../../images/logo.jpg";
 
-const registerBG = {
-  background: `url(${regBG})`,
-  backgroundRepeat: "round",
-  backgroundColor: "rgba(70, 56, 69,0.) ",
-  height: "600px",
-  backgroundBlendMode: "darken, luminosity",
-  marginBottom: "40px",
-};
 const Register = () => {
   const [loginData, setLoginData] = useState({});
   const { user, registerUser, isLoading, authError, signInGoogle } = useAuth();
@@ -43,113 +33,112 @@ const Register = () => {
   };
 
   return (
-    <div style={registerBG}>
-      <br />
-      <div>
-        {!isLoading && (
-          <form
-            style={{
-              backgroundColor: "white",
-              height: "550px",
-              width: "370px",
-              marginLeft: "30px",
-              borderRadius: "10px",
-            }}
-            onSubmit={handleRegisterSubmit}
-          >
-            <Typography>Register</Typography>
-            <img
-              style={{
-                width: "100px",
-                marginTop: "10px",
-                borderRadius: "10px",
-              }}
-              src={loginlogo}
-              alt=""
-            />
-            <br />
-            <TextField
-              id="outlined-basic"
-              label="Your Name"
-              sx={{ width: "70%", marginTop: "8px" }}
-              name="name"
-              onBlur={handleOnBlur}
-              type="text"
-              variant="outlined"
-            />
-            <br />
-            <TextField
-              id="outlined-basic"
-              label="Email"
-              sx={{ width: "70%", marginTop: "8px" }}
-              name="email"
-              onBlur={handleOnBlur}
-              type="email"
-              variant="outlined"
-            />
-            <br />
-            <TextField
-              id="outlined-basic"
-              label="Password"
-              sx={{ width: "70%", marginTop: "8px" }}
-              name="password"
-              onBlur={handleOnBlur}
-              type="password"
-              variant="outlined"
-            />
-            <br />
+    <div>
+      <Typography sx={{ marginTop: 15 }}>Register</Typography>
+      {!isLoading && (
+        <form
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(1, 1fr)",
+            width: "500px",
+            margin: "auto",
+            gap: "10px",
+            padding: "10px",
+          }}
+          onSubmit={handleRegisterSubmit}
+        >
+          <TextField
+            id="outlined-basic"
+            label="Your Name"
+            name="name"
+            onBlur={handleOnBlur}
+            type="text"
+            variant="outlined"
+          />
 
-            <TextField
-              id="outlined-basic"
-              label="Confirm Password"
-              sx={{ width: "70%", marginTop: "8px" }}
-              name="password2"
-              onBlur={handleOnBlur}
-              type="password"
-              variant="outlined"
-            />
-            <br />
-            <br />
-            <Button
-              type="submit"
-              sx={{
-                width: "70%",
-                backgroundColor: "#0C246A",
-                color: "#E5E7E9",
-              }}
-            >
-              Register
-            </Button>
-            <div>-----------------OR------------------</div>
-            <Button
-              sx={{
-                width: "70%",
-                backgroundColor: "#0C246A",
-                color: "#E5E7E9",
-              }}
-              onClick={signInGoogle}
-            >
-              Sign-In_Google
-            </Button>
-            <NavLink
-              style={{ textDecoration: "none", color: "#10B88F" }}
-              to="/login"
-            >
-              <Button
-                sx={{ color: "#0F2721 ", fontWeight: 700 }}
-                variant="text"
-              >
-                Already Registered? Please Login
-              </Button>
-            </NavLink>
-          </form>
-        )}
-        {isLoading && <CircularProgress />}
-        {user?.email && (
-          <Alert severity="success">user created successfully</Alert>
-        )}
-        {authError && <Alert severity="error">{authError}</Alert>}
-      </div>
+          <TextField
+            id="outlined-basic"
+            label="Email"
+            name="email"
+            onBlur={handleOnBlur}
+            type="email"
+            variant="outlined"
+          />
+
+          <TextField
+            id="outlined-basic"
+            label="Password"
+            name="password"
+            onBlur={handleOnBlur}
+            type="password"
+            variant="outlined"
+          />
+
+          <TextField
+            id="outlined-basic"
+            label="Confirm Password"
+            name="password2"
+            onBlur={handleOnBlur}
+            type="password"
+            variant="outlined"
+          />
+
+          <button
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
+              color: "#E5E7E9",
+              width: "100%",
+              fontSize: "20px",
+              border: "none",
+              height: "50px",
+              margin: "auto",
+            }}
+            type="submit"
+          >
+            Register
+          </button>
+          <Divider
+            sx={{
+              backgroundColor: "black",
+              width: "100%",
+              height: "10px",
+              margin: "auto",
+            }}
+          ></Divider>
+          <button
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
+              color: "#E5E7E9",
+              width: "100%",
+              fontSize: "20px",
+              border: "none",
+              height: "50px",
+              margin: "auto",
+            }}
+            onClick={signInGoogle}
+          >
+            Sign-In_Google
+          </button>
+          <NavLink
+            style={{
+              color: "#151E11",
+              textDecoration: "none",
+              fontSize: "20px",
+              fontWeight: "900px",
+            }}
+            to="/login"
+          >
+            Already Registered? Please Login
+          </NavLink>
+        </form>
+      )}
+      {isLoading && <CircularProgress />}
+      {user?.email && (
+        <Alert severity="success">user created successfully</Alert>
+      )}
+      {authError && <Alert severity="error">{authError}</Alert>}
     </div>
   );
 };

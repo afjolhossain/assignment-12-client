@@ -68,8 +68,7 @@ const useFirebase = () => {
         setUser(result.user);
 
         saveUser(user.email, user.displayName, "PUT");
-        const destination = location?.state?.from || "/";
-        navigate(destination);
+        navigate("/");
       })
       .catch((error) => {
         setAuthError(error.message);
@@ -93,7 +92,9 @@ const useFirebase = () => {
   }, [auth]);
 
   useEffect(() => {
-    fetch(`https://sheltered-wildwood-44278.herokuapp.com/users/${user.email}`)
+    fetch(
+      `https://assignment-12-server-gamma.vercel.app/explores/users/${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
@@ -109,7 +110,7 @@ const useFirebase = () => {
   };
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("https://sheltered-wildwood-44278.herokuapp.com/users", {
+    fetch("https://assignment-12-server-gamma.vercel.app/explores/users", {
       method: method,
       headers: {
         "content-type": "application/json",

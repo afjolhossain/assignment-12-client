@@ -1,42 +1,30 @@
-import { Container, Grid, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Avatar, Box } from "@mui/material";
 import React from "react";
+import useAuth from "../../../Hooks/useAuth";
 
 const Reviews = ({ reviews }) => {
-  const { name, image, rating, opinion } = reviews;
+  const { name, opinion, Designation } = reviews;
+  const { user } = useAuth();
+
   return (
-    <Grid item xs={4} sm={4} md={4} sx={{}}>
-      <Container
-        sx={{
-          backgroundColor: "#C6A481",
-          display: "flex",
-          borderRadius: "10px",
-        }}
-      >
-        <Box>
-          <img
-            style={{ borderRadius: "50%", marginTop: "30px" }}
-            src={image}
-            alt=""
-          />
-        </Box>
-        <Box
-          sx={{
-            m: 1,
-            width: 258,
-            height: 200,
-            textAlign: "start",
-            marginLeft: "20px",
-          }}
-        >
-          <Typography sx={{ color: "#2B3430" }}>Md:{name}</Typography>
-          <Typography sx={{ color: "#61405F" }}>
-            <span style={{ color: "#34495E " }}>Opinion:</span> {opinion}
-          </Typography>
-          <Typography sx={{ color: "#010F0A" }}>Rating: {rating}</Typography>
-        </Box>
-      </Container>
-    </Grid>
+    <Box
+      style={{
+        background: "linear-gradient(90deg, #4b6cb7 0%, #182848 100%)",
+        color: "white",
+        width: "50%",
+        margin: "auto",
+        padding: "15px",
+      }}
+    >
+      <Avatar
+        src={user.photoURL}
+        sx={{ width: 80, height: 80, margin: "auto" }}
+      />
+      <p className="text-2xl text-slate-50 py-2">Name : {name}</p>
+      <p className="text-2xl text-slate-50 py-2">Designation : {Designation}</p>
+
+      <p className="font-bold text-slate-200 italic">Opinion : {opinion}</p>
+    </Box>
   );
 };
 

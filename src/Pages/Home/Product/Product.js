@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -8,11 +8,8 @@ import { Link } from "react-router-dom";
 const Product = ({ product }) => {
   const { _id, name, image, description } = product;
   return (
-    <Grid xs={12} md={4}>
-      <Card
-        sx={{ maxWidth: 345 }}
-        style={{ margin: "auto", marginTop: "40px" }}
-      >
+    <Grid sx={{ margin: "auto" }}>
+      <Card sx={{ maxWidth: 345 }}>
         <img style={{ width: "280px", height: "200px" }} src={image} alt="" />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -27,15 +24,21 @@ const Product = ({ product }) => {
           </Typography>
           <br />
           <Link style={{ textDecoration: "none" }} to={`/purchase/${_id}`}>
-            <Button
-              sx={{
+            <button
+              style={{
                 width: "100%",
-                backgroundColor: "#0C246A",
-                color: "#E5E7E9",
+                padding: "15px",
+                color: "white",
+                border: "none",
+                fontSize: "18px",
+                fontWeight: "900px",
+                borderRadius: "10px",
+                backgroundImage:
+                  "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
               }}
             >
               BUY NOW
-            </Button>
+            </button>
           </Link>
         </CardContent>
       </Card>

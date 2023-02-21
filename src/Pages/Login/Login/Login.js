@@ -1,25 +1,14 @@
 import React, { useState } from "react";
 import {
   Alert,
-  Button,
   CircularProgress,
-  Container,
+  Divider,
   TextField,
   Typography,
 } from "@mui/material";
-import LogBG from "../../../images/special.jpg";
-import loginlo from "../../../images/logo.jpg";
+
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-
-const LoginBG = {
-  background: `url(${LogBG})`,
-  backgroundRepeat: "round",
-  backgroundColor: "#5D6D7E ",
-  height: "600px",
-  backgroundBlendMode: "darken, luminosity",
-  marginBottom: "40px",
-};
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
@@ -42,21 +31,21 @@ const Login = () => {
   };
 
   return (
-    <Container style={LoginBG} sx={{}}>
-      <br />
+    <div>
+      <Typography sx={{ marginTop: 15 }}>Login</Typography>
       {!isLoading && (
         <form
           style={{
-            backgroundColor: "white",
-            height: "500px",
-            width: "360px",
-            borderRadius: "10px",
+            display: "grid",
+            gridTemplateColumns: "repeat(1, 1fr)",
+            width: "500px",
+            margin: "auto",
+            gap: "10px",
+            padding: "10px",
           }}
-          xs={12}
           onSubmit={handleLogInSubmit}
         >
-          <Typography>Login</Typography>
-          <img
+          {/* <img
             style={{
               width: "100px",
               marginTop: "10px",
@@ -64,59 +53,77 @@ const Login = () => {
             }}
             src={loginlo}
             alt=""
-          />
-          <br />
+          /> */}
+
           <TextField
             id="outlined-basic"
             label="Your Email"
-            sx={{ width: "70%", marginTop: "8px" }}
             name="email"
+            style={{ width: "100%", margin: "auto" }}
             onChange={handleOnChange}
             type="email"
             variant="outlined"
           />
-          <br />
+
           <TextField
             id="outlined-basic"
             label="Password"
-            sx={{ width: "70%", marginTop: "8px" }}
+            style={{ width: "100%", margin: "auto" }}
             name="password"
             onChange={handleOnChange}
             type="password"
             variant="outlined"
           />
-          <br />
-          <br />
-          <Button
+
+          <button
             type="submit"
-            sx={{
-              width: "70%",
-              backgroundColor: "#0C246A",
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
               color: "#E5E7E9",
+              width: "100%",
+              border: "none",
+              height: "50px",
+              fontSize: "20px",
+              margin: "auto",
             }}
           >
             Login
-          </Button>
-          <br />
-          <div>-----------------OR------------------</div>
-          <Button
+          </button>
+
+          <Divider
             sx={{
-              width: "70%",
-              backgroundColor: "#0C246A",
+              backgroundColor: "black",
+              width: "100%",
+              height: "10px",
+              margin: "auto",
+            }}
+          />
+          <button
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
               color: "#E5E7E9",
+              width: "100%",
+              height: "50px",
+              fontSize: "20px",
+              margin: "auto",
+              border: "none",
             }}
             onClick={signInGoogle}
           >
             Sign-In_Google
-          </Button>
+          </button>
           <NavLink
-            style={{ textDecoration: "none" }}
             to="/register"
-            sx={{ textDecoration: "none" }}
+            style={{
+              color: "#151E11",
+              textDecoration: "none",
+              fontSize: "20px",
+              fontWeight: "900px",
+            }}
           >
-            <Button sx={{ color: "#0F2721 ", fontWeight: 700 }} variant="text">
-              New User? Please Register
-            </Button>
+            New User? Please Register
           </NavLink>
         </form>
       )}
@@ -125,7 +132,7 @@ const Login = () => {
         <Alert severity="success">user created successfully</Alert>
       )}
       {authError && <Alert severity="error">{authError}</Alert>}
-    </Container>
+    </div>
   );
 };
 

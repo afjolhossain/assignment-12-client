@@ -1,4 +1,5 @@
-import { Container, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Order from "../Order/Order";
@@ -8,39 +9,43 @@ const Purchase = () => {
   const [explores, setExplores] = useState({});
 
   useEffect(() => {
-    const url = `https://sheltered-wildwood-44278.herokuapp.com/explores/${exploresId}`;
+    const url = `https://assignment-12-server-gamma.vercel.app/explores/${exploresId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setExplores(data));
   }, [exploresId]);
   return (
-    <Container
-      sx={{
-        display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
-        margin: "auto",
-        backgroundColor: "#717D7E",
-        width: "100%",
-        height: "550px",
-      }}
-      item
-      xs={12}
-      columns={{ xs: 4, sm: 8, md: 12 }}
+    <Grid
+      container
+      columns={{ xs: 6, sm: 8, md: 12 }}
+      sx={{ padding: "10px", marginTop: 10 }}
     >
-      <Grid item={5}>
-        <img xs={12} style={{ width: "450px" }} src={explores.image} alt="" />
-        <Typography sx={{ fontWeight: "700px", color: "#070100" }} variant="h4">
-          Name: {explores.name}
-        </Typography>
-        <Typography sx={{ color: "#F0F3F4 " }} variant="subtitle2">
-          Description: {explores.description}
-        </Typography>
-        <Typography variant="h6">Price: ${explores.price}</Typography>
+      <Grid item xs={7} sx={{ margin: "auto" }}>
+        <img
+          style={{ width: "300px", margin: "auto" }}
+          src={explores.image}
+          alt=""
+        />
+        <Box sx={{ textAlign: "start", marginLeft: "15px" }}>
+          <Typography
+            sx={{ fontWeight: "700px", color: "#070100" }}
+            variant="h6"
+          >
+            Name: {explores.name}
+          </Typography>
+          <Typography sx={{}} variant="subtitle2">
+            <span style={{ color: "#1a237e", fontWeight: "900px" }}>
+              Description:
+            </span>
+            {explores.description}
+          </Typography>
+          <Typography variant="h6">Price: ${explores.price}</Typography>
+        </Box>
       </Grid>
-      <Grid item={6} xs={12} sx={{ margin: "20px" }}>
+      <Grid item xs={4} sx={{ margin: "auto" }}>
         <Order></Order>
       </Grid>
-    </Container>
+    </Grid>
   );
 };
 

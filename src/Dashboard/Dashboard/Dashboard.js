@@ -1,20 +1,14 @@
 import React from "react";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { AppBar, Box, Button, CssBaseline, Divider } from "@mui/material";
+import { AppBar, Box, Button, CssBaseline } from "@mui/material";
 import { Link, Outlet } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 
-const drawerWidth = 200;
+const drawerWidth = 300;
 
 const Dashboard = (props) => {
   const { window } = props;
@@ -26,80 +20,157 @@ const Dashboard = (props) => {
   };
 
   const drawer = (
-    <div>
-      <Toolbar />
-      <Divider />
-      <Link style={{ textDecoration: "none" }} to="/dashboard">
-        <Button color="inherit">Dashboard</Button>
+    <div
+      style={{
+        display: "grid",
+        gridAutoColumns: "1 1fr",
+        rowGap: "10px",
+        padding: "10px",
+        textAlign: "start",
+        marginTop: "15px",
+      }}
+    >
+      <Link
+        style={{
+          textDecoration: "none",
+        }}
+        to="/dashboard/deshboardProfile"
+      >
+        <Button
+          style={{
+            width: "100%",
+            color: "white",
+            backgroundImage:
+              "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
+            fontWeight: "900px",
+            fontFamily: "serif",
+            height: "60px",
+          }}
+        >
+          Profile
+        </Button>
       </Link>
-      <br />
-      {admin && (
-        <Box>
-          <Link style={{ textDecoration: "none" }} to={`/dashboard/makeAdmin`}>
-            <Button color="inherit">Make Admin</Button>
-          </Link>
-          <br />
-          <Link
-            style={{ textDecoration: "none" }}
-            to={`/dashboard/addaservice`}
-          >
-            <Button color="inherit">Add Product</Button>
-          </Link>
-          <br />
-          <Link
-            style={{ textDecoration: "none" }}
-            to={`/dashboard/manageAllOrder`}
-          >
-            <Button color="inherit">Manage All order</Button>
-          </Link>
-          <br />
-          <Link
-            style={{ textDecoration: "none" }}
-            to={`/dashboard/manageProducts`}
-          >
-            <Button color="inherit">Manage-Products</Button>
-          </Link>
-          <br />
-        </Box>
-      )}
+
+      <Link style={{ textDecoration: "none" }} to={`/dashboard/makeAdmin`}>
+        <Button
+          style={{
+            width: "100%",
+            color: "white",
+            backgroundImage:
+              "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
+            fontWeight: "900px",
+            fontFamily: "serif",
+            height: "60px",
+          }}
+        >
+          Make Admin
+        </Button>
+      </Link>
+
+      {/* <Link
+          style={{ textDecoration: "none" }}
+          to={`/dashboard/manageProducts`}
+        >
+          <Button color="inherit">Manage-Products</Button>
+        </Link> */}
 
       <Link style={{ textDecoration: "none" }} to={`/dashboard/pay`}>
-        <Button color="inherit">Pay</Button>
+        <Button
+          style={{
+            width: "100%",
+            color: "white",
+            backgroundImage:
+              "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
+            fontWeight: "900px",
+            fontFamily: "serif",
+            height: "60px",
+          }}
+        >
+          Pay
+        </Button>
       </Link>
-      <br />
 
       <Link style={{ textDecoration: "none" }} to={`/dashboard/clientReview`}>
-        <Button color="inherit">Review</Button>
+        <Button
+          style={{
+            width: "100%",
+            color: "white",
+            backgroundImage:
+              "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
+            fontWeight: "900px",
+            fontFamily: "serif",
+            height: "60px",
+          }}
+        >
+          Review
+        </Button>
       </Link>
-      <br />
+      <Link style={{ textDecoration: "none" }} to={`/dashboard/manageAllOrder`}>
+        <Button
+          style={{
+            width: "100%",
+            color: "white",
+            backgroundImage:
+              "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
+            fontWeight: "900px",
+            fontFamily: "serif",
+            height: "60px",
+          }}
+        >
+          Manage All order
+        </Button>
+      </Link>
       <Link style={{ textDecoration: "none" }} to={`/dashboard/myOrder`}>
-        <Button color="inherit">My Order</Button>
+        <Button
+          style={{
+            width: "100%",
+            color: "white",
+            backgroundImage:
+              "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
+            fontWeight: "900px",
+            fontFamily: "serif",
+            height: "60px",
+          }}
+        >
+          My Order
+        </Button>
       </Link>
-
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
+      <Link style={{ textDecoration: "none" }} to={`/dashboard/addaservice`}>
+        <Button
+          style={{
+            width: "100%",
+            color: "white",
+            backgroundImage:
+              "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
+            fontWeight: "900px",
+            fontFamily: "serif",
+            height: "60px",
+          }}
+        >
+          Add Product
+        </Button>
+      </Link>
     </div>
   );
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box
+      sx={{
+        display: "flex",
+        backgroundColor: "#00679A",
+        height: "655px",
+      }}
+    >
       <CssBaseline />
       <AppBar
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          backgroundImage:
+            "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
         }}
       >
         <Toolbar>
@@ -119,7 +190,10 @@ const Dashboard = (props) => {
       </AppBar>
       <Box
         component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        sx={{
+          width: { sm: drawerWidth },
+          flexShrink: { sm: 0 },
+        }}
         aria-label="mailbox folders"
       >
         <Drawer
@@ -147,6 +221,7 @@ const Dashboard = (props) => {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              backgroundColor: "#00679A",
             },
           }}
           open
@@ -157,12 +232,9 @@ const Dashboard = (props) => {
       <Box
         component="main"
         sx={{
-          flexGrow: 1,
-          p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
-        <Toolbar />
         <Outlet></Outlet>
       </Box>
     </Box>

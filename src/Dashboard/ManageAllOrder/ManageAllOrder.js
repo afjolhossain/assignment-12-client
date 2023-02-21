@@ -1,10 +1,13 @@
+import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import useAuth from "../../Hooks/useAuth";
 
 const ManageAllOrder = () => {
   const [manageOrders, setManageOrders] = useState([]);
+  const { user } = useAuth();
 
   useEffect(() => {
-    fetch("https://sheltered-wildwood-44278.herokuapp.com/orders")
+    fetch("https://assignment-12-server-gamma.vercel.app/orders")
       .then((res) => res.json())
       .then((data) => setManageOrders(data));
   }, []);
@@ -12,7 +15,7 @@ const ManageAllOrder = () => {
     console.log(id);
     const confirm = window.confirm("Are you sure about this ?");
     if (confirm) {
-      fetch(`https://sheltered-wildwood-44278.herokuapp.com/orders/${id}`, {
+      fetch(`https://assignment-12-server-gamma.vercel.app/orders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -28,43 +31,27 @@ const ManageAllOrder = () => {
     }
   };
 
-  //   const handleUpdateId = (id) => {
-  //     fetch(`https://sheltered-wildwood-44278.herokuapp.com/orders/${id}`, {
-  //       method: "PUT",
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         if (data.deletedCount > 0) {
-  //           alert("Deleted successfully");
-  //           const remaining = manageOrders.filter(
-  //             (booking) => booking._id !== id
-  //           );
-  //           setManageOrders(remaining);
-  //         }
-  //       });
-  //   };
   return (
     <div xs={12} md={6}>
-      <h1 style={{ color: "#0F5BF3" }}>Manage All Orders</h1>
-      <h3 style={{ color: "#0BEF99" }}>
+      <Typography variant="h4" sx={{ marginTop: 10, color: "white" }}>
         Total Orders Available:{manageOrders.length}
-      </h3>
+      </Typography>
 
-      <table style={{ margin: "auto" }}>
+      <table style={{ margin: "auto", width: "100%" }}>
         <thead>
           <tr
             style={{
               backgroundColor: "#F43213",
-              width: 700,
               textAlign: "center",
               color: "white",
-              marginTop: "40",
+              height: "50px",
             }}
           >
             <th>Name</th>
             <th>Email</th>
             <th>Address</th>
-            <th>Action</th>
+            <th>Mobile Number</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -73,28 +60,39 @@ const ManageAllOrder = () => {
               style={{
                 backgroundColor: "#808B96",
                 color: "white",
-                height: 30,
+                height: "40px",
               }}
             >
-              <td style={{ backgroundColor: "#273746", width: 150 }}>
-                {manageOrder.name}
+              <td style={{ backgroundColor: "#273746", width: 250 }}>
+                {user.displayName}
               </td>
               <td style={{ backgroundColor: "#707B7C", width: 250 }}>
-                {manageOrder.email}
+                {user.email}
               </td>
-              <td style={{ backgroundColor: "#273746", width: 150 }}>
+              <td style={{ backgroundColor: "#273746", width: 250 }}>
                 {manageOrder.address}
               </td>
-              <td className="text-center">
+              <td style={{ backgroundColor: "#273746", width: 150 }}>
+                {manageOrder.phoneNumber}
+              </td>
+
+              <td
+                className="text-center"
+                style={{ backgroundColor: "#273746", width: 250 }}
+              >
                 <button onClick={() => handleDelete(manageOrder._id)}>
-                  Delete
+                  <span
+                    style={{
+                      marginTop: "8px",
+                      fontSize: "30px",
+                      color: "red",
+                      border: "none",
+                    }}
+                  >
+                    X
+                  </span>
                 </button>
               </td>
-              {/* <td className="text-center">
-                <button onClick={() =>}>
-                  update
-                </button>
-              </td> */}
             </tr>
           ))}
         </tbody>

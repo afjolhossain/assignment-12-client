@@ -1,30 +1,37 @@
-import { Container, Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
 import Reviews from "../Reviews/Reviews";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Review = () => {
   const [review, setReview] = useState([]);
 
   useEffect(() => {
-    fetch("https://sheltered-wildwood-44278.herokuapp.com/reviews")
+    fetch("https://assignment-12-server-gamma.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, []);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    speed: 1500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   return (
-    <Container>
-      <h1 style={{ color: "#441440", fontWeight: "700", fontSize: "50px" }}>
-        Our Clients Reviews
-      </h1>
-      <Grid
-        container
-        spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 4, sm: 8, md: 12 }}
-      >
+    <div>
+      <h2 style={{ padding: "20px", color: "#151E11" }}>
+        Our Customer Realtime Reviews
+      </h2>
+      <Slider {...settings}>
         {review.map((reviews) => (
           <Reviews key={reviews._id} reviews={reviews}></Reviews>
         ))}
-      </Grid>
-    </Container>
+      </Slider>
+    </div>
   );
 };
 
