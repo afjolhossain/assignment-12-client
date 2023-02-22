@@ -159,8 +159,6 @@ const Dashboard = (props) => {
     <Box
       sx={{
         display: "flex",
-        backgroundColor: "#00679A",
-        height: "655px",
       }}
     >
       <CssBaseline />

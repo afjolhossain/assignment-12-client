@@ -93,7 +93,7 @@ const useFirebase = () => {
 
   useEffect(() => {
     fetch(
-      `https://assignment-12-server-gamma.vercel.app/explores/users/${user.email}`
+      `https://assignment-12-server-kohl.vercel.app/explores/users/${user.email}`
     )
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
@@ -110,7 +110,7 @@ const useFirebase = () => {
   };
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("https://assignment-12-server-gamma.vercel.app/explores/users", {
+    fetch("https://assignment-12-server-kohl.vercel.app/explores/users", {
       method: method,
       headers: {
         "content-type": "application/json",

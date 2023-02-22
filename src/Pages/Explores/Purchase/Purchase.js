@@ -9,7 +9,7 @@ const Purchase = () => {
   const [explores, setExplores] = useState({});
 
   useEffect(() => {
-    const url = `https://assignment-12-server-gamma.vercel.app/explores/${exploresId}`;
+    const url = `https://assignment-12-server-kohl.vercel.app/explores/${exploresId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setExplores(data));

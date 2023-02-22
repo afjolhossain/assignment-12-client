@@ -31,9 +31,7 @@ const MakeAdmin = () => {
   };
   return (
     <div>
-      <Typography variant="h4" sx={{ marginTop: 10, color: "white" }}>
-        Make an Admin
-      </Typography>
+      <Typography variant="h4">Make an Admin</Typography>
 
       <form onSubmit={handleAdminSubmit}>
         <TextField

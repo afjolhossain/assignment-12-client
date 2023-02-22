@@ -6,7 +6,7 @@ const DashboardProfile = () => {
   const { user } = useAuth();
   return (
     <div>
-      <Typography variant="h4" sx={{ marginTop: 15, color: "white" }}>
+      <Typography variant="h4">
         WelCome To Dashboard {user.displayName}
       </Typography>
     </div>

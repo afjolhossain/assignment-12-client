@@ -15,7 +15,7 @@ const AddAService = () => {
 
     const newService = { name, description, price, image };
 
-    fetch("https://assignment-12-server-gamma.vercel.app/explores", {
+    fetch("https://assignment-12-server-kohl.vercel.app/explores", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -34,9 +34,7 @@ const AddAService = () => {
   };
   return (
     <div>
-      <Typography variant="h4" sx={{ marginTop: 10, color: "white" }}>
-        ADD A SERVICE
-      </Typography>
+      <Typography variant="h4">ADD A SERVICE</Typography>
       <form
         onSubmit={handleAddService}
         style={{

@@ -41,7 +41,7 @@ const Navigation = () => {
         backgroundColor: "#0093E9",
         backgroundImage: "linear-gradient(181deg, #0093E9 0%, #80D0C7 100%)",
       }}
-      position="fixed"
+      position="static"
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>

@@ -12,7 +12,7 @@ const Order = () => {
     // formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch("https://assignment-12-server-gamma.vercel.app/orders", {
+    fetch("https://assignment-12-server-kohl.vercel.app/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

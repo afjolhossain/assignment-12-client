@@ -50,7 +50,7 @@ const Banner = () => {
   };
 
   return (
-    <div style={{ marginTop: "30px" }}>
+    <div>
       <Slider {...settings}>
         <Box>
           <img style={{ width: "100%" }} src={banner1} alt="" />

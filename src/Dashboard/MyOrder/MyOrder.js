@@ -7,7 +7,7 @@ const MyOrder = () => {
   const { email, user } = useAuth();
 
   useEffect(() => {
-    fetch("https://assignment-12-server-gamma.vercel.app/orders")
+    fetch("https://assignment-12-server-kohl.vercel.app/orders")
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, [orders]);
@@ -17,7 +17,7 @@ const MyOrder = () => {
     console.log(id);
     const confirm = window.confirm("Are you sure about this ?");
     if (confirm) {
-      fetch(`https://assignment-12-server-gamma.vercel.app/orders/${id}`, {
+      fetch(`https://assignment-12-server-kohl.vercel.app/orders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -33,9 +33,7 @@ const MyOrder = () => {
 
   return (
     <div>
-      <Typography variant="h4" sx={{ marginTop: 10, color: "white" }}>
-        Your Orders Available:{orders.length}
-      </Typography>
+      <Typography>Your Orders Available:{orders.length}</Typography>
       <table style={{ width: "100%" }}>
         <thead>
           <tr

@@ -8,7 +8,7 @@ const ClientReview = () => {
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    fetch("https://assignment-12-server-gamma.vercel.app/reviews", {
+    fetch("https://assignment-12-server-kohl.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -26,9 +26,7 @@ const ClientReview = () => {
 
   return (
     <div>
-      <Typography variant="h4" sx={{ marginTop: 10, color: "white" }}>
-        Order Your Product
-      </Typography>
+      <Typography variant="h4">Order Your Product</Typography>
 
       <form
         onSubmit={handleSubmit(onSubmit)}

@@ -7,7 +7,7 @@ const ManageAllOrder = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch("https://assignment-12-server-gamma.vercel.app/orders")
+    fetch("https://assignment-12-server-kohl.vercel.app/orders")
       .then((res) => res.json())
       .then((data) => setManageOrders(data));
   }, []);
@@ -15,7 +15,7 @@ const ManageAllOrder = () => {
     console.log(id);
     const confirm = window.confirm("Are you sure about this ?");
     if (confirm) {
-      fetch(`https://assignment-12-server-gamma.vercel.app/orders/${id}`, {
+      fetch(`https://assignment-12-server-kohl.vercel.app/orders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -33,7 +33,7 @@ const ManageAllOrder = () => {
 
   return (
     <div xs={12} md={6}>
-      <Typography variant="h4" sx={{ marginTop: 10, color: "white" }}>
+      <Typography variant="h4">
         Total Orders Available:{manageOrders.length}
       </Typography>
 
