@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import { AppBar, Box, Button, CssBaseline } from "@mui/material";
 import { Link, Outlet } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import DashboardProfile from "../DashboardProfile/DashboardProfile";
 
 const drawerWidth = 300;
 
@@ -14,7 +15,7 @@ const Dashboard = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const { admin } = useAuth();
+  // const { admin } = useAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -230,6 +231,7 @@ const Dashboard = (props) => {
       <Box
         component="main"
         sx={{
+          marginTop: 5,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >

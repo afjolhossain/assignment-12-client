@@ -179,9 +179,9 @@ const Navigation = () => {
           </Box>
 
           {user ? (
-            <Box sx={{ flexGrow: 0, marginRight: { lg: "100px" } }}>
+            <Box sx={{ flexGrow: 0 }}>
               <Tooltip title={user?.displayName}>
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <IconButton onClick={handleOpenUserMenu}>
                   <Avatar alt={user?.displayName} src={user.photoURL} />
                 </IconButton>
               </Tooltip>
@@ -202,13 +202,6 @@ const Navigation = () => {
                 onClose={handleCloseUserMenu}
               >
                 <MenuItem onClick={handleCloseUserMenu}>
-                  <NavLink style={{ textDecoration: "none" }} to="/dashboard">
-                    <Typography style={{ color: "black" }} textAlign="center">
-                      Dashboard
-                    </Typography>
-                  </NavLink>
-                </MenuItem>
-                <MenuItem onClick={handleCloseUserMenu}>
                   {user.email ? (
                     <Box style={{ textDecoration: "none" }}>
                       <Typography
@@ -218,6 +211,19 @@ const Navigation = () => {
                       >
                         Logout
                       </Typography>
+                      <MenuItem onClick={handleCloseUserMenu}>
+                        <NavLink
+                          style={{ textDecoration: "none" }}
+                          to="/dashboard"
+                        >
+                          <Typography
+                            style={{ color: "black" }}
+                            textAlign="center"
+                          >
+                            Dashboard
+                          </Typography>
+                        </NavLink>
+                      </MenuItem>
                     </Box>
                   ) : (
                     <NavLink style={{ textDecoration: "none" }} to="/login">

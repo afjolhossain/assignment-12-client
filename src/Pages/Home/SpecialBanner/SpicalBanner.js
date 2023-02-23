@@ -19,22 +19,28 @@ const SpicalBanner = () => {
         Our Upcoming Products
       </h1>
       ;
-      <Container style={SpecialBannerBG}>
-        <Box sx={{ width: "330px", marginRight: 20 }}>
-          <br />
-          <br />
-          <br />
-          <Typography variant="h5" sx={{ color: "white", textAlign: "start" }}>
-            Do not go unnoticed on the new Streetfighter V2
-          </Typography>
-          <br />
-          <br />
-          <Typography variant="h6" sx={{ color: "white", textAlign: "start" }}>
-            Express your gritty spirit to the full and move nimbly through the
-            city without ever going unnoticed. Choose your look on the Ducati
-            Shop
-          </Typography>
-          <br />
+      <div style={SpecialBannerBG}>
+        <Box sx={{ width: "330px" }}>
+          <div
+            style={{ lineHeight: 2, paddingTop: "120px", marginLeft: "15px" }}
+          >
+            <Typography
+              variant="h5"
+              sx={{ color: "white", textAlign: "start" }}
+            >
+              Do not go unnoticed on the new Streetfighter V2
+            </Typography>
+            <br />
+            <Typography
+              variant="h6"
+              sx={{ color: "white", textAlign: "start" }}
+            >
+              Express your gritty spirit to the full and move nimbly through the
+              city without ever going unnoticed. Choose your look on the Ducati
+              Shop
+            </Typography>
+          </div>
+
           <Button
             sx={{
               color: "white",
@@ -47,7 +53,7 @@ const SpicalBanner = () => {
             Learn More
           </Button>
         </Box>
-      </Container>
+      </div>
     </div>
   );
 };

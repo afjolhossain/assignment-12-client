@@ -11,7 +11,7 @@ const Products = () => {
       .then((data) => setProducts(data));
   }, []);
   return (
-    <Container sx={{ margin: "auto", padding: "10px" }}>
+    <Container sx={{ margin: "auto" }}>
       <h1
         style={{
           color: "#441440",

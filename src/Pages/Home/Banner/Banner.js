@@ -52,7 +52,7 @@ const Banner = () => {
   return (
     <div>
       <Slider {...settings}>
-        <Box>
+        <Box sx={{ margin: "auto" }}>
           <img style={{ width: "100%" }} src={banner1} alt="" />
         </Box>
         <Box>

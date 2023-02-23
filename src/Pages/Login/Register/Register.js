@@ -34,16 +34,15 @@ const Register = () => {
 
   return (
     <div>
-      <Typography sx={{ marginTop: 15 }}>Register</Typography>
+      <Typography sx={{ padding: 6 }}>Register</Typography>
       {!isLoading && (
         <form
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(1, 1fr)",
-            width: "500px",
-            margin: "auto",
+            width: "400px",
+            marginInline: "auto",
             gap: "10px",
-            padding: "10px",
           }}
           onSubmit={handleRegisterSubmit}
         >
@@ -138,7 +137,20 @@ const Register = () => {
       {user?.email && (
         <Alert severity="success">user created successfully</Alert>
       )}
-      {authError && <Alert severity="error">{authError}</Alert>}
+      {authError && (
+        <Alert
+          sx={{
+            width: "380px",
+            height: "50px",
+            fontWeight: "700px",
+            marginTop: "5px",
+            margin: "auto",
+          }}
+          severity="error"
+        >
+          {authError}
+        </Alert>
+      )}
     </div>
   );
 };

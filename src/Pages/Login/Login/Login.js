@@ -32,16 +32,15 @@ const Login = () => {
 
   return (
     <div>
-      <Typography sx={{ marginTop: 15 }}>Login</Typography>
+      <Typography sx={{ padding: 6 }}>Login</Typography>
       {!isLoading && (
         <form
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(1, 1fr)",
-            width: "500px",
+            width: "400px",
             margin: "auto",
             gap: "10px",
-            padding: "10px",
           }}
           onSubmit={handleLogInSubmit}
         >
@@ -128,10 +127,21 @@ const Login = () => {
         </form>
       )}
       {isLoading && <CircularProgress />}
-      {user?.email && (
-        <Alert severity="success">user created successfully</Alert>
+      {user?.email && <Alert>user created successfully</Alert>}
+      {authError && (
+        <Alert
+          sx={{
+            width: "380px",
+            height: "50px",
+            fontWeight: "700px",
+            marginTop: "5px",
+            margin: "auto",
+          }}
+          severity="error"
+        >
+          {authError}
+        </Alert>
       )}
-      {authError && <Alert severity="error">{authError}</Alert>}
     </div>
   );
 };
