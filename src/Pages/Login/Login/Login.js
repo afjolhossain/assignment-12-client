@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   Alert,
   CircularProgress,
+  Container,
   Divider,
   TextField,
   Typography,
@@ -35,20 +36,20 @@ const Login = () => {
   return (
     <div>
       <Navigation></Navigation>
-      <Typography sx={{ padding: 6 }}>Login</Typography>
-      {!isLoading && (
-        <form
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(1, 1fr)",
-            width: "350px",
-            margin: "auto",
-            gap: "10px",
-            padding: "10px",
-          }}
-          onSubmit={handleLogInSubmit}
-        >
-          {/* <img
+      <Container>
+        <Typography sx={{ padding: 4 }}>Login</Typography>
+        {!isLoading && (
+          <form
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(1, 1fr)",
+              width: "330px",
+              margin: "auto",
+              gap: "10px",
+            }}
+            onSubmit={handleLogInSubmit}
+          >
+            {/* <img
             style={{
               width: "100px",
               marginTop: "10px",
@@ -58,94 +59,95 @@ const Login = () => {
             alt=""
           /> */}
 
-          <TextField
-            id="outlined-basic"
-            label="Your Email"
-            name="email"
-            style={{ width: "100%", margin: "auto" }}
-            onChange={handleOnChange}
-            type="email"
-            variant="outlined"
-          />
+            <TextField
+              id="outlined-basic"
+              label="Your Email"
+              name="email"
+              style={{ width: "100%", margin: "auto" }}
+              onChange={handleOnChange}
+              type="email"
+              variant="outlined"
+            />
 
-          <TextField
-            id="outlined-basic"
-            label="Password"
-            style={{ width: "100%", margin: "auto" }}
-            name="password"
-            onChange={handleOnChange}
-            type="password"
-            variant="outlined"
-          />
+            <TextField
+              id="outlined-basic"
+              label="Password"
+              style={{ width: "100%", margin: "auto" }}
+              name="password"
+              onChange={handleOnChange}
+              type="password"
+              variant="outlined"
+            />
 
-          <button
-            type="submit"
-            style={{
-              backgroundImage:
-                "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
-              color: "#E5E7E9",
-              width: "100%",
-              border: "none",
-              height: "50px",
-              fontSize: "20px",
-              margin: "auto",
-            }}
-          >
-            Login
-          </button>
+            <button
+              type="submit"
+              style={{
+                backgroundImage:
+                  "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
+                color: "#E5E7E9",
+                width: "100%",
+                border: "none",
+                height: "50px",
+                fontSize: "20px",
+                margin: "auto",
+              }}
+            >
+              Login
+            </button>
 
-          <Divider
+            <Divider
+              sx={{
+                backgroundColor: "black",
+                width: "100%",
+                height: "10px",
+                margin: "auto",
+              }}
+            />
+            <button
+              style={{
+                backgroundImage:
+                  "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
+                color: "#E5E7E9",
+                width: "100%",
+                height: "50px",
+                fontSize: "20px",
+                margin: "auto",
+                border: "none",
+              }}
+              onClick={signInGoogle}
+            >
+              Sign-In_Google
+            </button>
+            <NavLink
+              to="/register"
+              style={{
+                color: "#151E11",
+                textDecoration: "none",
+                fontSize: "20px",
+                fontWeight: "900px",
+              }}
+            >
+              New User? Please Register
+            </NavLink>
+          </form>
+        )}
+        {isLoading && <CircularProgress />}
+        {user?.email && <Alert>user created successfully</Alert>}
+        {authError && (
+          <Alert
             sx={{
-              backgroundColor: "black",
-              width: "100%",
-              height: "10px",
-              margin: "auto",
-            }}
-          />
-          <button
-            style={{
-              backgroundImage:
-                "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
-              color: "#E5E7E9",
-              width: "100%",
+              width: "380px",
               height: "50px",
-              fontSize: "20px",
+              fontWeight: "700px",
+              marginTop: "5px",
               margin: "auto",
-              border: "none",
             }}
-            onClick={signInGoogle}
+            severity="error"
           >
-            Sign-In_Google
-          </button>
-          <NavLink
-            to="/register"
-            style={{
-              color: "#151E11",
-              textDecoration: "none",
-              fontSize: "20px",
-              fontWeight: "900px",
-            }}
-          >
-            New User? Please Register
-          </NavLink>
-        </form>
-      )}
-      {isLoading && <CircularProgress />}
-      {user?.email && <Alert>user created successfully</Alert>}
-      {authError && (
-        <Alert
-          sx={{
-            width: "380px",
-            height: "50px",
-            fontWeight: "700px",
-            marginTop: "5px",
-            margin: "auto",
-          }}
-          severity="error"
-        >
-          {authError}
-        </Alert>
-      )}
+            {authError}
+          </Alert>
+        )}
+      </Container>
       <Footer></Footer>
     </div>
   );

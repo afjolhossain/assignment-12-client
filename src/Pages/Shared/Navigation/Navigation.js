@@ -132,7 +132,7 @@ const Navigation = () => {
             >
               <NavLink to="/">
                 <img
-                  style={{ width: "80px", height: "50px" }}
+                  style={{ width: "80px", height: "50px", marginTop: "10px" }}
                   src={logo}
                   alt=""
                 />
