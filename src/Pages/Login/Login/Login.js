@@ -41,7 +41,7 @@ const Login = () => {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(1, 1fr)",
-            width: "400px",
+            width: "350px",
             margin: "auto",
             gap: "10px",
             padding: "10px",
