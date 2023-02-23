@@ -17,13 +17,10 @@ import Login from "./Pages/Login/Login/Login";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import Register from "./Pages/Login/Register/Register";
 
-import Navigation from "./Pages/Shared/Navigation/Navigation";
-
 function App() {
   return (
     <div className="App ">
       <AuthProvider>
-        <Navigation></Navigation>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="home" element={<Home />} />

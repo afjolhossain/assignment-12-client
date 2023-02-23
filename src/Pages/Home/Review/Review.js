@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import Reviews from "../Reviews/Reviews";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Container } from "@mui/material";
 
 const Review = () => {
   const [review, setReview] = useState([]);
@@ -23,7 +23,7 @@ const Review = () => {
     slidesToScroll: 1,
   };
   return (
-    <div>
+    <Container>
       <h2 style={{ padding: "20px", color: "#151E11" }}>
         Our Customer Realtime Reviews
       </h2>
@@ -36,7 +36,7 @@ const Review = () => {
           ))}
         </Slider>
       )}
-    </div>
+    </Container>
   );
 };
 

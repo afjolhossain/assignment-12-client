@@ -4,7 +4,7 @@ import logo from "../../../images/logo.jpg";
 
 const Footer = () => {
   return (
-    <div style={{ margin: "auto" }}>
+    <div style={{ margin: "auto", padding: "15px" }}>
       <Box
         sx={{
           marginTop: 10,

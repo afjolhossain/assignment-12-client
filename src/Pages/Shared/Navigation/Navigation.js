@@ -35,231 +35,231 @@ const Navigation = () => {
     setAnchorElUser(null);
   };
   return (
-    <AppBar
-      elevation={0}
-      sx={{
-        backgroundColor: "#0093E9",
-        backgroundImage: "linear-gradient(181deg, #0093E9 0%, #80D0C7 100%)",
-      }}
-      position="static"
-    >
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            noWrap
-            component="div"
-            sx={{
-              display: { xs: "none", md: "flex" },
-              marginLeft: "50px",
-            }}
-          >
-            <NavLink to="/">
-              <img
-                style={{ width: "80px", height: "50px" }}
-                src={logo}
-                alt=""
-              />
-            </NavLink>
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+    <div>
+      <AppBar
+        elevation={0}
+        sx={{
+          backgroundColor: "#0093E9",
+          backgroundImage: "linear-gradient(181deg, #0093E9 0%, #80D0C7 100%)",
+        }}
+        position="static"
+      >
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Typography
+              noWrap
+              component="div"
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: "none", md: "flex" },
+                marginLeft: "50px",
               }}
             >
-              <MenuItem onClick={handleCloseNavMenu}>
-                <NavLink
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                    fontWeight: "700px",
-                  }}
-                  to="/"
-                >
-                  <Typography textAlign="center">Home</Typography>
-                </NavLink>
-              </MenuItem>
-              <MenuItem>
-                <NavLink
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                    fontWeight: "700px",
-                  }}
-                  to="/exploreHome"
-                >
-                  <Typography textAlign="center">Products</Typography>
-                </NavLink>
-              </MenuItem>
-            </Menu>
-          </Box>
+              <NavLink to="/">
+                <img
+                  style={{ width: "80px", height: "50px" }}
+                  src={logo}
+                  alt=""
+                />
+              </NavLink>
+            </Typography>
 
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
-          >
-            <NavLink to="/">
-              <img
-                style={{ width: "80px", height: "50px" }}
-                src={logo}
-                alt=""
-              />
-            </NavLink>
-          </Typography>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: "none", md: "flex", justifyContent: "flex-end" },
-              marginRight: "50px",
-            }}
-          >
-            <NavLink style={{ textDecoration: "none" }} to="/">
-              <Box
-                style={{
-                  color: "black",
-                  marginRight: 30,
-                  textTransform: "capitalize",
-                  fontSize: "17px",
-                }}
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "flex", md: "none" },
+              }}
+            >
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
               >
-                HOME
-              </Box>
-            </NavLink>
-
-            <NavLink style={{ textDecoration: "none" }} to="/exploreHome">
-              <Box
-                style={{
-                  color: "black",
-                  marginRight: 30,
-                  textTransform: "capitalize",
-                  fontSize: "17px",
-                }}
-              >
-                PRODUCTS
-              </Box>
-            </NavLink>
-
-            <NavLink style={{ textDecoration: "none" }} to="/contact-us">
-              <Box
-                style={{
-                  color: "black",
-                  textTransform: "capitalize",
-                  fontSize: "17px",
-                }}
-              >
-                CONTACT-US
-              </Box>
-            </NavLink>
-          </Box>
-
-          {user ? (
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title={user?.displayName}>
-                <IconButton onClick={handleOpenUserMenu}>
-                  <Avatar alt={user?.displayName} src={user.photoURL} />
-                </IconButton>
-              </Tooltip>
+                <MenuIcon />
+              </IconButton>
               <Menu
-                sx={{ mt: "45px" }}
                 id="menu-appbar"
-                anchorEl={anchorElUser}
+                anchorEl={anchorElNav}
                 anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
+                  vertical: "bottom",
+                  horizontal: "left",
                 }}
                 keepMounted
                 transformOrigin={{
                   vertical: "top",
-                  horizontal: "right",
+                  horizontal: "left",
                 }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
               >
-                <MenuItem onClick={handleCloseUserMenu}>
-                  {user.email ? (
-                    <Box style={{ textDecoration: "none" }}>
-                      <Typography
-                        style={{ color: "black" }}
-                        onClick={logOut}
-                        textAlign="center"
-                      >
-                        Logout
-                      </Typography>
-                      <MenuItem onClick={handleCloseUserMenu}>
-                        <NavLink
-                          style={{ textDecoration: "none" }}
-                          to="/dashboard"
-                        >
-                          <Typography
-                            style={{ color: "black" }}
-                            textAlign="center"
-                          >
-                            Dashboard
-                          </Typography>
-                        </NavLink>
-                      </MenuItem>
-                    </Box>
-                  ) : (
-                    <NavLink style={{ textDecoration: "none" }} to="/login">
-                      <Typography style={{ color: "black" }} textAlign="center">
-                        Login
-                      </Typography>
-                    </NavLink>
-                  )}
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <NavLink
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                      fontWeight: "700px",
+                    }}
+                    to="/"
+                  >
+                    <Typography textAlign="center">Home</Typography>
+                  </NavLink>
+                </MenuItem>
+                <MenuItem>
+                  <NavLink
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                      fontWeight: "700px",
+                    }}
+                    to="/exploreHome"
+                  >
+                    <Typography textAlign="center">Products</Typography>
+                  </NavLink>
                 </MenuItem>
               </Menu>
             </Box>
-          ) : (
-            <NavLink style={{ textDecoration: "none" }} to="/login">
-              <Button
-                sx={{
-                  flexGrow: 0,
-                  marginRight: { lg: "100px" },
-                  backgroundColor: "black",
-                  ":hover": { backgroundColor: "black" },
-                  py: 1,
-                  px: 3,
-                }}
-                variant="contained"
-              >
-                <Typography
-                  style={{ color: "white", textTransform: "capitalize" }}
-                  textAlign="center"
+
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+            >
+              <NavLink to="/">
+                <img
+                  style={{ width: "80px", height: "50px" }}
+                  src={logo}
+                  alt=""
+                />
+              </NavLink>
+            </Typography>
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", md: "flex", justifyContent: "flex-end" },
+                marginRight: "50px",
+              }}
+            >
+              <NavLink style={{ textDecoration: "none" }} to="/">
+                <Box
+                  style={{
+                    color: "black",
+                    marginRight: 30,
+                    textTransform: "capitalize",
+                    fontSize: "17px",
+                  }}
                 >
-                  Login
-                </Typography>
-              </Button>
-            </NavLink>
-          )}
-        </Toolbar>
-      </Container>
-    </AppBar>
+                  HOME
+                </Box>
+              </NavLink>
+
+              <NavLink style={{ textDecoration: "none" }} to="/exploreHome">
+                <Box
+                  style={{
+                    color: "black",
+                    marginRight: 30,
+                    textTransform: "capitalize",
+                    fontSize: "17px",
+                  }}
+                >
+                  PRODUCTS
+                </Box>
+              </NavLink>
+
+              <NavLink style={{ textDecoration: "none" }} to="/contact-us">
+                <Box
+                  style={{
+                    color: "black",
+                    textTransform: "capitalize",
+                    fontSize: "17px",
+                  }}
+                >
+                  CONTACT-US
+                </Box>
+              </NavLink>
+            </Box>
+
+            {user ? (
+              <Box sx={{ flexGrow: 0 }}>
+                <IconButton onClick={handleOpenUserMenu}>
+                  <Avatar alt={user?.displayName} src={user.photoURL} />
+                </IconButton>
+
+                <Menu
+                  sx={{ mt: "45px" }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <NavLink style={{ textDecoration: "none" }} to="/dashboard">
+                      <Typography style={{ color: "black" }} textAlign="center">
+                        Dashboard
+                      </Typography>
+                    </NavLink>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    {user.email ? (
+                      <Box style={{ textDecoration: "none" }}>
+                        <Typography
+                          style={{ color: "black" }}
+                          onClick={logOut}
+                          textAlign="center"
+                        >
+                          Logout
+                        </Typography>
+                      </Box>
+                    ) : (
+                      <NavLink style={{ textDecoration: "none" }} to="/login">
+                        <Typography
+                          style={{ color: "black" }}
+                          textAlign="center"
+                        >
+                          Login
+                        </Typography>
+                      </NavLink>
+                    )}
+                  </MenuItem>
+                </Menu>
+              </Box>
+            ) : (
+              <NavLink style={{ textDecoration: "none" }} to="/login">
+                <Button
+                  sx={{
+                    flexGrow: 0,
+                    marginRight: { lg: "100px" },
+                    backgroundColor: "black",
+                  }}
+                  variant="contained"
+                >
+                  <Typography
+                    style={{ color: "white", textTransform: "capitalize" }}
+                    textAlign="center"
+                  >
+                    Login
+                  </Typography>
+                </Button>
+              </NavLink>
+            )}
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </div>
   );
 };
 

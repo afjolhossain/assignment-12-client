@@ -8,6 +8,8 @@ import {
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
+import Footer from "../../Shared/Footer/Footer";
+import Navigation from "../../Shared/Navigation/Navigation";
 
 const Register = () => {
   const [loginData, setLoginData] = useState({});
@@ -34,6 +36,7 @@ const Register = () => {
 
   return (
     <div>
+      <Navigation></Navigation>
       <Typography sx={{ padding: 6 }}>Register</Typography>
       {!isLoading && (
         <form
@@ -151,6 +154,7 @@ const Register = () => {
           {authError}
         </Alert>
       )}
+      <Footer></Footer>
     </div>
   );
 };

@@ -9,6 +9,8 @@ import {
 
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
+import Navigation from "../../Shared/Navigation/Navigation";
+import Footer from "../../Shared/Footer/Footer";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
@@ -32,6 +34,7 @@ const Login = () => {
 
   return (
     <div>
+      <Navigation></Navigation>
       <Typography sx={{ padding: 6 }}>Login</Typography>
       {!isLoading && (
         <form
@@ -41,6 +44,7 @@ const Login = () => {
             width: "400px",
             margin: "auto",
             gap: "10px",
+            padding: "10px",
           }}
           onSubmit={handleLogInSubmit}
         >
@@ -142,6 +146,7 @@ const Login = () => {
           {authError}
         </Alert>
       )}
+      <Footer></Footer>
     </div>
   );
 };

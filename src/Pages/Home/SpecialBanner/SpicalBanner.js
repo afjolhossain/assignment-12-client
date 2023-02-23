@@ -14,7 +14,7 @@ const SpecialBannerBG = {
 
 const SpicalBanner = () => {
   return (
-    <div>
+    <Container>
       <h1 style={{ color: "#441440", fontWeight: "700", fontSize: "40px" }}>
         Our Upcoming Products
       </h1>
@@ -54,7 +54,7 @@ const SpicalBanner = () => {
           </Button>
         </Box>
       </div>
-    </div>
+    </Container>
   );
 };
 

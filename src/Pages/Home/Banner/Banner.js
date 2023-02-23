@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Box } from "@mui/system";
+import { Container } from "@mui/material";
 
 const Banner = () => {
   const settings = {
@@ -50,7 +51,7 @@ const Banner = () => {
   };
 
   return (
-    <div>
+    <Container sx={{ padding: 3 }}>
       <Slider {...settings}>
         <Box sx={{ margin: "auto" }}>
           <img style={{ width: "100%" }} src={banner1} alt="" />
@@ -75,7 +76,7 @@ const Banner = () => {
           <img style={{ width: "100%" }} src={banner8} alt="" />
         </Box>
       </Slider>
-    </div>
+    </Container>
   );
 };
 
