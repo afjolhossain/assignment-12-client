@@ -30,7 +30,7 @@ const MakeAdmin = () => {
     e.preventDefault();
   };
   return (
-    <div>
+    <div style={{ marginTop: "20px", padding: "15px" }}>
       <Typography variant="h4">Make an Admin</Typography>
 
       <form onSubmit={handleAdminSubmit}>
@@ -41,7 +41,14 @@ const MakeAdmin = () => {
           onBlur={handleOnBlur}
           variant="standard"
         />
-        <Button type="submit" variant="contained">
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{
+            backgroundImage:
+              "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
+          }}
+        >
           Make Admin
         </Button>
       </form>

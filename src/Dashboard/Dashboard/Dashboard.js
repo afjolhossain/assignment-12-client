@@ -6,10 +6,10 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { AppBar, Box, Button, CssBaseline } from "@mui/material";
 import { Link, Outlet } from "react-router-dom";
-import useAuth from "../../Hooks/useAuth";
 import DashboardProfile from "../DashboardProfile/DashboardProfile";
+import Navigation from "../../Pages/Shared/Navigation/Navigation";
 
-const drawerWidth = 300;
+const drawerWidth = 200;
 
 const Dashboard = (props) => {
   const { window } = props;
@@ -28,30 +28,9 @@ const Dashboard = (props) => {
         rowGap: "10px",
         padding: "10px",
         textAlign: "start",
-        marginTop: "15px",
+        marginTop: "50px",
       }}
     >
-      <Link
-        style={{
-          textDecoration: "none",
-        }}
-        to="/dashboard/deshboardProfile"
-      >
-        <Button
-          style={{
-            width: "100%",
-            color: "white",
-            backgroundImage:
-              "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
-            fontWeight: "900px",
-            fontFamily: "serif",
-            height: "60px",
-          }}
-        >
-          Profile
-        </Button>
-      </Link>
-
       <Link style={{ textDecoration: "none" }} to={`/dashboard/makeAdmin`}>
         <Button
           style={{
@@ -67,13 +46,6 @@ const Dashboard = (props) => {
           Make Admin
         </Button>
       </Link>
-
-      {/* <Link
-          style={{ textDecoration: "none" }}
-          to={`/dashboard/manageProducts`}
-        >
-          <Button color="inherit">Manage-Products</Button>
-        </Link> */}
 
       <Link style={{ textDecoration: "none" }} to={`/dashboard/pay`}>
         <Button
@@ -141,6 +113,7 @@ const Dashboard = (props) => {
           style={{
             width: "100%",
             color: "white",
+
             backgroundImage:
               "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
             fontWeight: "900px",
@@ -163,6 +136,7 @@ const Dashboard = (props) => {
       }}
     >
       <CssBaseline />
+
       <AppBar
         position="fixed"
         sx={{
@@ -231,10 +205,11 @@ const Dashboard = (props) => {
       <Box
         component="main"
         sx={{
-          marginTop: 5,
+          marginTop: 10,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
+        <DashboardProfile></DashboardProfile>
         <Outlet></Outlet>
       </Box>
     </Box>

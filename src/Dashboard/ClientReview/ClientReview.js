@@ -25,8 +25,8 @@ const ClientReview = () => {
   };
 
   return (
-    <div>
-      <Typography variant="h4">Order Your Product</Typography>
+    <div style={{ marginTop: "20px", padding: "15px" }}>
+      <Typography variant="h6">Please Send Your Valuable Review</Typography>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -36,7 +36,7 @@ const ClientReview = () => {
           width: "500px",
           margin: "auto",
           gap: "10px",
-          padding: "10px",
+          padding: "15px",
         }}
       >
         <input
@@ -61,7 +61,16 @@ const ClientReview = () => {
           {...register("Designation")}
         />
 
-        <input type="submit" style={{ height: "40px", borderRadius: "5px " }} />
+        <input
+          type="submit"
+          style={{
+            height: "40px",
+            color: "white",
+            borderRadius: "5px ",
+            backgroundImage:
+              "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
+          }}
+        />
       </form>
     </div>
   );

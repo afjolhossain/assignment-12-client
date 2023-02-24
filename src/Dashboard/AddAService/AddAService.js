@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import React, { useRef } from "react";
 
 const AddAService = () => {
@@ -33,8 +33,8 @@ const AddAService = () => {
     e.preventDefault();
   };
   return (
-    <div>
-      <Typography variant="h4">ADD A SERVICE</Typography>
+    <Container style={{ marginTop: "20px", padding: "15px" }}>
+      <Typography variant="h6">ADD A SERVICE</Typography>
       <form
         onSubmit={handleAddService}
         style={{
@@ -77,10 +77,16 @@ const AddAService = () => {
         <input
           type="submit"
           value="SUBMIT"
-          style={{ height: "40px", borderRadius: "5px " }}
+          style={{
+            height: "40px",
+            borderRadius: "5px ",
+            backgroundImage:
+              "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
+            color: "white",
+          }}
         />
       </form>
-    </div>
+    </Container>
   );
 };
 

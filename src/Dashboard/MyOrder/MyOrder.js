@@ -32,8 +32,10 @@ const MyOrder = () => {
   };
 
   return (
-    <div>
-      <Typography>Your Orders Available:{orders.length}</Typography>
+    <div style={{ marginTop: "20px", padding: "15px" }}>
+      <Typography variant="h6">
+        Your Orders Available:{orders.length}
+      </Typography>
       <table style={{ width: "100%" }}>
         <thead>
           <tr

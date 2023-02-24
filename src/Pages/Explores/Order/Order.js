@@ -55,7 +55,14 @@ const Order = () => {
         <TextField label="Address" defaultValue="" {...register("address")} />
         <TextField label="Phone-Number" {...register("phoneNumber")} />
 
-        <TextField style={{ color: "white" }} type="submit">
+        <TextField
+          style={{
+            color: "white",
+            backgroundImage:
+              "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
+          }}
+          type="submit"
+        >
           SUBMIT
         </TextField>
       </Box>

@@ -29,7 +29,8 @@ const Explore = ({ explore }) => {
             <Button
               sx={{
                 width: "100%",
-                backgroundColor: "#0C246A",
+                backgroundImage:
+                  "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
                 color: "#E5E7E9",
               }}
             >

@@ -7,7 +7,7 @@ const DashboardProfile = () => {
   return (
     <div>
       <Typography variant="h4">
-        WelCome To Dashboard {user.displayName}
+        WelCome To Dashboard <span>{user.displayName}</span>
       </Typography>
     </div>
   );

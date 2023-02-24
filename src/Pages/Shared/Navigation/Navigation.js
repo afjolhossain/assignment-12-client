@@ -1,6 +1,5 @@
 import logo from "../../../images/logo.jpg";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
@@ -9,7 +8,6 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
-import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { NavLink } from "react-router-dom";
@@ -121,6 +119,17 @@ const Navigation = () => {
                     <Typography textAlign="center">Products</Typography>
                   </NavLink>
                 </MenuItem>
+                <NavLink
+                  to="/contact"
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                    fontWeight: "700px",
+                    marginLeft: "20px",
+                  }}
+                >
+                  Contact
+                </NavLink>
               </Menu>
             </Box>
 
@@ -171,7 +180,7 @@ const Navigation = () => {
                 </Box>
               </NavLink>
 
-              <NavLink style={{ textDecoration: "none" }} to="/contact-us">
+              <NavLink style={{ textDecoration: "none" }} to="/contact">
                 <Box
                   style={{
                     color: "black",
@@ -184,78 +193,79 @@ const Navigation = () => {
               </NavLink>
             </Box>
 
-            {user ? (
-              <Box sx={{ flexGrow: 0 }}>
-                <IconButton onClick={handleOpenUserMenu}>
-                  <Avatar alt={user?.displayName} src={user.photoURL} />
-                </IconButton>
+            <Box sx={{ flexGrow: 0 }}>
+              <IconButton onClick={handleOpenUserMenu}>
+                <Avatar alt={user?.displayName} src={user.photoURL} />
+              </IconButton>
 
-                <Menu
-                  sx={{ mt: "45px" }}
-                  id="menu-appbar"
-                  anchorEl={anchorElUser}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}
-                >
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <NavLink style={{ textDecoration: "none" }} to="/dashboard">
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                <MenuItem onClick={handleCloseUserMenu}>
+                  {user.email ? (
+                    <Box style={{ textDecoration: "none" }}>
+                      <MenuItem onClick={handleCloseUserMenu}>
+                        <NavLink
+                          style={{ textDecoration: "none" }}
+                          to="/dashboard"
+                        >
+                          <Typography
+                            style={{ color: "black" }}
+                            textAlign="center"
+                          >
+                            Dashboard
+                          </Typography>
+                        </NavLink>
+                      </MenuItem>
+                      <Typography
+                        style={{ color: "black" }}
+                        onClick={logOut}
+                        textAlign="center"
+                      >
+                        Logout
+                      </Typography>
+                    </Box>
+                  ) : (
+                    <NavLink style={{ textDecoration: "none" }} to="/login">
                       <Typography style={{ color: "black" }} textAlign="center">
-                        Dashboard
+                        Login
                       </Typography>
                     </NavLink>
-                  </MenuItem>
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    {user.email ? (
-                      <Box style={{ textDecoration: "none" }}>
-                        <Typography
-                          style={{ color: "black" }}
-                          onClick={logOut}
-                          textAlign="center"
-                        >
-                          Logout
-                        </Typography>
-                      </Box>
-                    ) : (
-                      <NavLink style={{ textDecoration: "none" }} to="/login">
-                        <Typography
-                          style={{ color: "black" }}
-                          textAlign="center"
-                        >
-                          Login
-                        </Typography>
-                      </NavLink>
-                    )}
-                  </MenuItem>
-                </Menu>
-              </Box>
-            ) : (
-              <NavLink style={{ textDecoration: "none" }} to="/login">
-                <Button
-                  sx={{
-                    flexGrow: 0,
-                    marginRight: { lg: "100px" },
-                    backgroundColor: "black",
-                  }}
-                  variant="contained"
+                  )}
+                </MenuItem>
+              </Menu>
+            </Box>
+
+            {/* <NavLink style={{ textDecoration: "none" }} to="/login">
+              <Button
+                sx={{
+                  flexGrow: 0,
+                  marginRight: { lg: "100px" },
+                  backgroundColor: "black",
+                }}
+                variant="contained"
+              >
+                <Typography
+                  style={{ color: "white", textTransform: "capitalize" }}
+                  textAlign="center"
                 >
-                  <Typography
-                    style={{ color: "white", textTransform: "capitalize" }}
-                    textAlign="center"
-                  >
-                    Login
-                  </Typography>
-                </Button>
-              </NavLink>
-            )}
+                  Login
+                </Typography>
+              </Button>
+            </NavLink> */}
           </Toolbar>
         </Container>
       </AppBar>

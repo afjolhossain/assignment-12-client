@@ -58,7 +58,6 @@ const useFirebase = () => {
       })
       .catch((error) => {
         setAuthError(error.message);
-        navigate("/");
       })
       .finally(() => setIsLoading(false));
   };

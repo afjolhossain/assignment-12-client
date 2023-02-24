@@ -32,12 +32,12 @@ const ManageAllOrder = () => {
   };
 
   return (
-    <div xs={12} md={6}>
-      <Typography variant="h4">
+    <div style={{ marginTop: "20px", padding: "15px" }}>
+      <Typography variant="h6">
         Total Orders Available:{manageOrders.length}
       </Typography>
 
-      <table style={{ margin: "auto", width: "100%" }}>
+      <table style={{ margin: "auto" }}>
         <thead>
           <tr
             style={{

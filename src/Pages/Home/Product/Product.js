@@ -34,7 +34,7 @@ const Product = ({ product }) => {
                 fontWeight: "900px",
                 borderRadius: "10px",
                 backgroundImage:
-                  "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
+                  "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
               }}
             >
               BUY NOW

@@ -9,6 +9,7 @@ import MakeAdmin from "./Dashboard/MakeAdmin/MakeAdmin";
 import ManageAllOrder from "./Dashboard/ManageAllOrder/ManageAllOrder";
 import MyOrder from "./Dashboard/MyOrder/MyOrder";
 import Pay from "./Dashboard/Pay/Pay";
+import ContactUs from "./Pages/ContactUs/ContactUs";
 import ExploreHome from "./Pages/Explores/ExploreHome/ExploreHome";
 import Purchase from "./Pages/Explores/Purchase/Purchase";
 import Home from "./Pages/Home/Home/Home";
@@ -26,6 +27,7 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="Login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="contact" element={<ContactUs />} />
           <Route
             path="/purchase/:exploresId"
             element={
